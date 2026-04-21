@@ -1,0 +1,215 @@
+/* orderDetails.css */
+
+.grid-container {
+    padding: 40px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.grid-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.grid-header h1 {
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.grid-header p {
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+.controls-container {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 1100px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.search-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Syncfusion Grid Customization */
+.e-grid {
+    border: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    background-color: white !important;
+}
+
+.e-grid .e-headercell {
+    background-color: #ffffff !important;
+    border-bottom: 2px solid #edf2f7 !important;
+    padding: 16px !important;
+}
+
+.e-grid .e-headertext {
+    color: #1a202c !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.e-grid .e-row {
+    height: 60px !important;
+}
+
+.e-grid .e-rowcell {
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
+    color: #4a5568 !important;
+    border-bottom: 1px solid #edf2f7 !important;
+}
+
+.e-grid .e-row:hover .e-rowcell {
+    background-color: #f8fafc !important;
+    color: #3182ce !important;
+    transition: all 0.2s ease;
+}
+
+.e-grid .e-gridheader {
+    border-bottom: none !important;
+}
+
+.e-grid .e-content {
+    background-color: white !important;
+}
+
+/* Custom badges for status if needed, but for now just general styling */
+.e-grid .e-numericitem.e-active {
+    background-color: #3182ce !important;
+    border-radius: 4px !important;
+}
+
+.e-grid .e-pager {
+    padding: 15px !important;
+    border-top: 1px solid #edf2f7 !important;
+}
+
+/* Multi-Color Beautiful Palette */
+
+/* ID Column - Indigo */
+.col-id {
+    color: #6366f1 !important;
+    font-weight: 700 !important;
+    background-color: rgba(99, 102, 241, 0.05) !important;
+}
+.e-grid .e-headercell.col-id .e-headertext { color: #6366f1 !important; }
+
+/* Customer ID - Sky Blue */
+.col-cust-id {
+    color: #0ea5e9 !important;
+    font-weight: 600 !important;
+    background-color: rgba(14, 165, 233, 0.05) !important;
+}
+.e-grid .e-headercell.col-cust-id .e-headertext { color: #0ea5e9 !important; }
+
+/* Name - Deep Purple */
+.col-name {
+    color: #8b5cf6 !important;
+    font-weight: 600 !important;
+    background-color: rgba(139, 92, 246, 0.05) !important;
+}
+.e-grid .e-headercell.col-name .e-headertext { color: #8b5cf6 !important; }
+
+/* Ship Name - Teal */
+.col-ship {
+    color: #14b8a6 !important;
+    background-color: rgba(20, 184, 166, 0.05) !important;
+}
+.e-grid .e-headercell.col-ship .e-headertext { color: #14b8a6 !important; }
+
+/* Country - Rose Pink */
+.col-country {
+    color: #f43f5e !important;
+    font-weight: 500 !important;
+    background-color: rgba(244, 63, 94, 0.05) !important;
+}
+.e-grid .e-headercell.col-country .e-headertext { color: #f43f5e !important; }
+
+/* Address - Slate Gray */
+.col-address {
+    color: #64748b !important;
+    background-color: rgba(100, 116, 139, 0.05) !important;
+}
+.e-grid .e-headercell.col-address .e-headertext { color: #64748b !important; }
+
+/* Charges - Amber Orange */
+.col-charges {
+    color: #f59e0b !important;
+    font-weight: 700 !important;
+    background-color: rgba(245, 158, 11, 0.05) !important;
+}
+.e-grid .e-headercell.col-charges .e-headertext { color: #f59e0b !important; }
+
+/* Verified - Emerald Green */
+.col-verified {
+    background-color: rgba(16, 185, 129, 0.05) !important;
+}
+.e-grid .e-headercell.col-verified .e-headertext { color: #10b981 !important; }
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+}
+
+.status-true {
+    background-color: #059669; /* Vivid Emerald */
+    color: #ffffff; /* White text for better contrast */
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+}
+
+.status-false {
+    background-color: #e11d48; /* Vivid Rose */
+    color: #ffffff; /* White text for better contrast */
+    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
+}
+
+/* Row Hover Reset - slightly more opaque on hover */
+.e-grid .e-row:hover .e-rowcell {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+    filter: brightness(0.95);
+    transition: all 0.3s ease;
+}
