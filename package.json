@@ -11,13 +11,19 @@
   },
   "dependencies": {
     "@syncfusion/ej2-base": "^33.2.3",
+    "@syncfusion/ej2-react-layouts": "^33.2.3",
+    "@syncfusion/ej2-react-navigations": "^33.2.3",
+    "@syncfusion/ej2-react-notifications": "^33.2.3",
+    "@syncfusion/ej2-react-popups": "^33.2.3",
     "@syncfusion/react-buttons": "^33.2.3",
     "@syncfusion/react-charts": "^33.2.3",
     "@syncfusion/react-dropdowns": "^33.2.3",
     "@syncfusion/react-grid": "^33.1.44",
     "@syncfusion/react-inputs": "^33.2.3",
+    "@syncfusion/react-popups": "^33.2.4",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.14.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

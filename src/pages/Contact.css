@@ -1,0 +1,193 @@
+.contact-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    background: #f8fafc;
+}
+
+.contact-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info {
+    flex: 1;
+    background: #0366d6;
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-info .highlight {
+    color: #e0f2fe;
+    background: transparent;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 50px;
+}
+
+.info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.info-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.contact-form-container {
+    flex: 1.2;
+    padding: 60px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    padding: 15px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    text-transform: none !important;
+}
+
+@media (max-width: 900px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    .contact-info {
+        padding: 40px;
+    }
+    .contact-form-container {
+        padding: 40px;
+    }
+}
+
+/* ── Info item hover ─────────────────────────────────── */
+.info-item {
+    cursor: default;
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.info-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Dialog: Confirm body ────────────────────────────── */
+.dialog-confirm-body {
+    padding: 8px 0;
+    text-align: center;
+}
+
+.confirm-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.dialog-confirm-body p {
+    font-size: 0.97rem;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* ── Dialog: Success body ────────────────────────────── */
+.dialog-success-body {
+    padding: 8px 0;
+    text-align: center;
+}
+
+.success-checkmark {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.dialog-success-body > p {
+    font-size: 0.97rem;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.success-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: left;
+}
+
+.success-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #166534;
+    font-weight: 500;
+}
