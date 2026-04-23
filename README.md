@@ -1,101 +1,86 @@
-# Order Dashboard - Syncfusion React Implementation
+# SyncPro - Premium Order Management Dashboard
 
-A premium, real-time Order Management Dashboard and Marketing Site built with React 19 and Syncfusion components. This dashboard is designed to monitor and manage customer orders with high efficiency and a beautiful, interactive user interface.
+A high-performance, real-time Order Management Dashboard and Marketing Site built with **React 19** and **Syncfusion** components. This application provides a full-featured suite for monitoring sales, managing customer data, and visualizing business analytics with a stunning, modern UI.
 
 ## 🚀 Key Features
 
-- **Advanced Data Grid**: High-performance grid handling 800+ records with features like paging and custom column styling.
-- **Dynamic Filtering**:
-  - **Country Filter**: A dropdown to isolate orders by shipping country.
-  - **Status Filter**: A dedicated filter to view only 'Verified' or 'Not Verified' orders.
-  - **Global Search**: A powerful search engine that filters across ID, Name, Address, City, Country, Charges, and Status.
-- **Interactive Tooltips**: Helpful, contextual tooltips across all pages (navigation links, buttons, icons, grid elements, and form fields) to guide user interaction without cluttering the UI.
-- **Interactive Dialogs**: 
-  - **Informational Modals**: Feature details and Team member bios dynamically display in rich modal windows.
-  - **Confirmation Dialogs**: Multi-step confirmation and success dialogs for the contact form and filter resetting.
-- **Visual Status Tracking**: Color-coded badges for order verification (TRUE/FALSE) using custom column templates.
-- **Premium UI/UX**:
-  - **Glassmorphism Design**: Semi-transparent containers with backdrop filters.
-  - **Custom Badges**: Vibrant, color-coded columns for better data scannability.
-  - **Responsive Layout**: Optimized for various screen resolutions.
+### 📊 Dynamic Data Analytics
+- **Spline Chart Visualization**: Real-time analytics showing **Total Orders**, **Verified Orders**, and **Not Verified Orders** by country.
+- **Interactive Data Mapping**: The chart dynamically updates as you search and filter the data grid, providing instant visual feedback.
+- **Multi-Series Comparison**: High-fidelity curves with interactive tooltips and custom-styled markers.
+
+### 📦 Advanced Order Management (Grid)
+- **High-Performance Grid**: Efficiently handles 800+ records with smooth paging and virtual scrolling.
+- **Visual Status Tracking**: Custom column templates for "Verified" status with vibrant, color-coded badges.
+- **Deep Search & Filtering**: 
+  - **Global Search**: Search across ID, Name, Address, Country, and Charges instantly.
+  - **Categorical Filters**: Narrow down data by Shipping Country and Verification Status.
+  - **Interactive Tooltips**: Ellipsis clipping on long text fields with full-content tooltips.
+
+### 🏠 Enhanced Marketing Suite
+- **Interactive Home Page**: 
+  - **Live Activity Feed**: Real-time grid of the latest order events.
+  - **Pricing Plans**: Professional tier comparison with dynamic billing cycle selection.
+  - **Stats Strip**: Animated metrics displaying key business performance indicators.
+- **About Page**:
+  - **Journey Timeline**: Interactive, color-coded vertical timeline of company milestones.
+  - **Tech Stack Grid**: Filterable directory of the modern technologies powering the app.
+  - **Core Values**: Rich, interactive grid highlighting company mission and vision.
+- **Contact & Support**:
+  - **Support Channels**: Dedicated grid for Live Chat, Email, and Phone support.
+  - **Interactive FAQ**: Grid-based FAQ with dynamic answer selection.
+  - **Priority Form**: Multi-step contact form with urgency selection and success tracking.
 
 ## 🛠️ Technologies Used
 
-- **React 19**: The latest version of React for building interactive UIs.
-- **Vite**: A next-generation frontend tool that provides a fast development environment.
-- **Syncfusion React Components (v33)**:
-  - `@syncfusion/react-grid`: For displaying and managing tabular order data.
-  - `@syncfusion/react-popups`: For interactive `Tooltip` and `Dialog` (Modal) components.
-  - `@syncfusion/react-dropdowns`: For the country selection filter.
-  - `@syncfusion/react-inputs`: For the global search keyword input and contact form textboxes.
-  - `@syncfusion/react-buttons`: For buttons across the application.
-- **CSS3**: Advanced styling including linear gradients, backdrop filters, flexbox/grid layouts, and micro-animations.
+- **React 19**: Core framework for modern, declarative UI development.
+- **Vite**: Ultra-fast build tool and development server.
+- **Syncfusion React Suite (v33)**:
+  - `@syncfusion/react-grid`: Robust data management and tabular display.
+  - `@syncfusion/react-charts`: High-performance Spline analytics visualization.
+  - `@syncfusion/react-popups`: Contextual `Tooltip` and interactive `Dialog` components.
+  - `@syncfusion/react-dropdowns`: Advanced `DropDownList` for intuitive filtering.
+  - `@syncfusion/react-inputs`: `TextBox` and `NumericTextBox` for precise data entry.
+  - `@syncfusion/react-buttons`: `Button`, `Checkbox`, and `RadioButton` variants.
+- **Modern CSS**: 
+  - **Glassmorphism**: Backdrop blur and semi-transparent design system.
+  - **Micro-Animations**: Smooth transitions, floating cards, and hovering effects.
+  - **Custom Toggles**: Hand-crafted native CSS switch components for a premium feel.
 
 ## 📦 Installation Guide
 
-To get this project running on your local machine, follow these steps:
-
-### 1. Project Setup
+### 1. Clone & Install
 ```bash
-# Navigate to the project directory
+# Clone the repository
+git clone [your-repo-url]
 cd react-syncfusion-dashboard
-```
 
-### 2. Install Dependencies
-```bash
-# Install core dependencies (React, Vite, etc.)
+# Install all dependencies
 npm install
-
-# Install Syncfusion React components
-npm install @syncfusion/react-grid @syncfusion/react-dropdowns @syncfusion/react-inputs @syncfusion/react-buttons @syncfusion/react-popups @syncfusion/ej2-base
 ```
 
-### 3. Start the Development Server
+### 2. Required Packages
+The project leverages a wide range of Syncfusion modules:
+```bash
+npm install @syncfusion/react-grid @syncfusion/react-charts @syncfusion/react-dropdowns @syncfusion/react-inputs @syncfusion/react-buttons @syncfusion/react-popups @syncfusion/ej2-base
+```
+
+### 3. Launch Development Server
 ```bash
 npm run dev
 ```
-The application will start on `http://localhost:5173` (or the next available port).
+Visit `http://localhost:5173` to explore the dashboard.
 
-## 🧩 Component Breakdown
+## 🧩 Page Breakdown
 
-### 1. Order Grid (Dashboard)
-The main data display component. It maps the following fields from the real-time dataset:
-- **Order ID**: Primary identification for orders.
-- **Customer ID/Name**: Identification of the purchaser.
-- **Ship Name/Address**: Destination details (Address includes ellipsis tooltip for long text).
-- **Verified Status**: Uses a custom **Column Template** to show "TRUE" in Emerald Green and "FALSE" in Rose Red badges.
-- **Charges (Freight)**: Shipping costs formatted in currency.
+### 1. Dashboard (The Core)
+The primary workspace where data meets visualization. It integrates the **Order Grid** and **Spline Chart** into a single reactive interface. Filtering the grid automatically recalculates and refreshes the chart visualization.
 
-### 2. Search & Filter Bar
-Located above the grid for quick access:
-- **Country DropDown**: Dynamically populated with unique countries.
-- **Status DropDown**: Filter by 'Verified', 'Not Verified', or 'All'.
-- **TextBox**: Global search for keywords across all data fields.
-- **Search Button**: Applies all filters and the search keyword simultaneously.
-- **Reset Button**: Clears all filters with a confirmation Dialog.
-
-### 3. Popups (Tooltips & Dialogs)
-- **Home Page**: Features a welcome dialog and detailed feature dialogs triggered by clickable cards.
-- **About Page**: Team member cards trigger a rich dialog containing full bios, skills, and contact links.
-- **Contact Page**: Multi-step submission flow using confirm and success dialogs. Fields use tooltips for guidance.
-- **Navigation**: Tooltips on all top-level navigation links.
-
-## 📊 Data Structure
-
-The dashboard uses a realistic dataset found in `src/orderDetails.ts`. Each order object contains:
-- `OrderID`, `CustomerID`, `CustomerName`
-- `OrderDate`, `ShippedDate`
-- `Freight` (Charges)
-- `ShipName`, `ShipAddress`, `ShipCity`, `ShipCountry`
-- `Quantity`, `Verified` status (Boolean)
-
-## 🎨 Styling System
-
-- **App.css**: Manages the base Syncfusion theme imports and global layout.
-- **orderDetails.css**: Contains the custom "Order Dashboard" theme, including:
-  - **Glassmorphism**: Backdrop blur and semi-transparent backgrounds.
-  - **Status Badges**: CSS classes for `.status-true` and `.status-false` with vivid, accessible colors.
-- **Page-specific CSS**: `Home.css`, `About.css`, and `Contact.css` contain rich component styles, animations, and responsive breakpoints.
+### 2. Marketing Pages
+Designed to convert and inform, using high-end UI components:
+- **Home**: Showcases feature highlights, pricing, and live feed.
+- **About**: Focuses on the team, milestones, and technical transparency.
+- **Contact**: Provides a reliable communication bridge with confirmation safeguards.
 
 ---
-Built with ❤️ using Syncfusion React components for the best-in-class data management experience.
+Built with ❤️ using Syncfusion React components for the best-in-class data management and visualization experience.

@@ -5,6 +5,16 @@ import { TextBox } from '@syncfusion/react-inputs';
 import { Button } from '@syncfusion/react-buttons';
 import { Tooltip } from '@syncfusion/react-popups';
 import { Dialog } from '@syncfusion/react-popups';
+import { 
+    Chart, 
+    ChartSeriesCollection, 
+    ChartSeries, 
+    ChartPrimaryXAxis, 
+    ChartPrimaryYAxis, 
+    ChartTooltip, 
+    ChartLegend,
+    ChartMarker
+} from '@syncfusion/react-charts';
 import { orderDetails } from '../orderDetails';
 import '../orderDetails.css';
 
@@ -26,11 +36,32 @@ export default function Dashboard() {
     const [selectedStatus, setSelectedStatus] = useState('All');
     const [resetDialog, setResetDialog] = useState(false);
     const [infoDialog, setInfoDialog] = useState(false);
+    const [refreshKey, setRefreshKey] = useState(0);
 
     const countries = useMemo(() => {
         const uniqueCountries = [...new Set(orderDetails.map(item => item.ShipCountry))];
         return ['All', ...uniqueCountries.sort()];
     }, []);
+
+    const chartData = useMemo(() => {
+        const countryStats = {};
+        filteredData.forEach(item => {
+            const country = item.ShipCountry;
+            if (!countryStats[country]) {
+                countryStats[country] = { country, total: 0, verified: 0, unverified: 0 };
+            }
+            countryStats[country].total += 1;
+            if (item.Verified) {
+                countryStats[country].verified += 1;
+            } else {
+                countryStats[country].unverified += 1;
+            }
+        });
+        // Sort by total orders and take top 10 to match the clean look of the reference
+        return Object.values(countryStats)
+            .sort((a, b) => b.total - a.total)
+            .slice(0, 10);
+    }, [filteredData]);
 
     const handleSearch = () => {
         let updatedData = orderDetails;
@@ -61,6 +92,7 @@ export default function Dashboard() {
         }
 
         setFilteredData(updatedData);
+        setRefreshKey(prev => prev + 1);
     };
 
     const handleReset = () => {
@@ -69,6 +101,7 @@ export default function Dashboard() {
         setSelectedCountry('All');
         setSelectedStatus('All');
         setFilteredData(orderDetails);
+        setRefreshKey(prev => prev + 1);
     };
 
     return (
@@ -182,6 +215,87 @@ export default function Dashboard() {
                     <Column field="Verified" headerText="Verified" width={100} textAlign={TextAlign.Center} template={statusTemplate} customAttributes={{ className: 'col-verified' }} />
                 </Columns>
             </Grid>
+
+            {/* Dynamic Data Visualization */}
+            <div className="chart-section" style={{ marginTop: '40px', padding: '24px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '16px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                <div className="chart-header" style={{ marginBottom: '20px' }}>
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#fff', margin: 0 }}>Order Analytics by Country</h2>
+                    <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem' }}>Visualizing order distribution and verification status across top regions</p>
+                </div>
+                
+                
+                <Chart 
+                    key={refreshKey}
+                    id="order-chart" 
+                    chartArea={{ border: { width: 0 } }}
+                    background="transparent"
+                    height="400px"
+                    theme="MaterialDark"
+                    title="Order Distribution Analysis"
+                    titleStyle={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600' }}
+                >
+                    <ChartPrimaryXAxis 
+                        valueType='Category' 
+                        labelRotation={-45} 
+                        labelIntersectAction='Rotate45'
+                        majorGridLines={{ width: 0 }}
+                        labelStyle={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                    />
+                    <ChartPrimaryYAxis 
+                        title='Number of Orders'
+                        labelFormat='{value}'
+                        lineStyle={{ width: 0 }}
+                        majorTickLines={{ width: 0 }}
+                        labelStyle={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                        titleStyle={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                    />
+                    <ChartTooltip 
+                        enable={true} 
+                        shared={true} 
+                        fill='#1a1a1a' 
+                        border={{ color: '#333' }} 
+                    />
+                    <ChartLegend 
+                        visible={true} 
+                        textStyle={{ color: 'rgba(255, 255, 255, 0.8)' }} 
+                    />
+                    <ChartSeriesCollection>
+                        <ChartSeries 
+                            dataSource={chartData} 
+                            xField="country" 
+                            yField="total" 
+                            name="Total Orders" 
+                            type="Spline" 
+                            width={3}
+                            fill="#3b82f6"
+                        >
+                            <ChartMarker visible={true} width={10} height={10} shape='Circle' isFilled={true} border={{ width: 2, color: '#fff' }} />
+                        </ChartSeries>
+                        <ChartSeries 
+                            dataSource={chartData} 
+                            xField="country" 
+                            yField="verified" 
+                            name="Verified Orders" 
+                            type="Spline" 
+                            width={3}
+                            fill="#10b981"
+                        >
+                            <ChartMarker visible={true} width={10} height={10} shape='Circle' isFilled={true} border={{ width: 2, color: '#fff' }} />
+                        </ChartSeries>
+                        <ChartSeries 
+                            dataSource={chartData} 
+                            xField="country" 
+                            yField="unverified" 
+                            name="Not Verified" 
+                            type="Spline" 
+                            width={3}
+                            fill="#ef4444"
+                        >
+                            <ChartMarker visible={true} width={10} height={10} shape='Circle' isFilled={true} border={{ width: 2, color: '#fff' }} />
+                        </ChartSeries>
+                    </ChartSeriesCollection>
+                </Chart>
+            </div>
 
             {/* Reset Confirmation Dialog */}
             <Dialog
