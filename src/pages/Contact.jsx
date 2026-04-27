@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TextBox, NumericTextBox } from '@syncfusion/react-inputs';
 import { Button, RadioButton } from '@syncfusion/react-buttons';
 import { DropDownList } from '@syncfusion/react-dropdowns';
-import { Tooltip } from '@syncfusion/react-popups';
-import { Dialog } from '@syncfusion/react-popups';
+import { Tooltip, Dialog } from '@syncfusion/react-popups';
 import { Grid, Columns, Column } from '@syncfusion/react-grid';
-import './Contact.css';
+import { ThemeContext } from '../context/ThemeContext';
+import '../styles/Contact.css';
 
 const faqData = [
     { question: 'How fast is the SyncPro dashboard?', answer: 'SyncPro renders up to 100,000 rows in under 50ms using Syncfusion\'s virtualized grid engine.' },
@@ -91,12 +91,12 @@ const Contact = () => {
                     </div>
 
                     {/* Dark mode toggle — just a UI demo */}
-                    <div className="toggle-demo" style={{ marginTop: '20px', display: 'flex', alignItems: 'center' }}>
+                    <div className="toggle-demo" style={{ marginTop: '24px', display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.1)', padding: '12px 16px', borderRadius: '12px' }}>
                         <label className="native-toggle">
                             <input type="checkbox" checked={darkMode} onChange={(e) => setDarkMode(e.target.checked)} />
-                            <span className="native-toggle-slider"></span>
+                            <span className="native-toggle-slider" style={{ backgroundColor: darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.2)' }}></span>
                         </label>
-                        <span style={{ marginLeft: '10px', fontSize: '0.85rem', opacity: 0.8 }}>
+                        <span style={{ marginLeft: '12px', fontSize: '0.9rem', fontWeight: 500 }}>
                             {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
                         </span>
                     </div>
@@ -145,12 +145,12 @@ const Contact = () => {
                             </Tooltip>
                         </div>
 
-                        <div className="form-actions">
+                        <div className="form-actions button-row" style={{ marginTop: '20px', justifyContent: 'flex-end' }}>
                             <Tooltip content={<>Clear the form</>} position="TopCenter">
-                                <Button cssClass="e-outline" type="reset">🗑️ Clear</Button>
+                                <Button className="e-outline" type="reset">🗑️ Clear</Button>
                             </Tooltip>
                             <Tooltip content={<>Review your message before sending</>} position="TopCenter">
-                                <Button isPrimary={true} cssClass="e-block submit-btn" type="submit">
+                                <Button isPrimary={true} className="e-primary submit-btn" type="submit">
                                     📤 Send Message
                                 </Button>
                             </Tooltip>
@@ -168,7 +168,7 @@ const Contact = () => {
                             <div className="support-icon" style={{ color: ch.color }}>{ch.icon}</div>
                             <h3 style={{ color: ch.color }}>{ch.title}</h3>
                             <p>{ch.desc}</p>
-                            <Button cssClass="e-outline support-ch-btn" style={{ borderColor: ch.color, color: ch.color }}>
+                            <Button className="e-outline support-ch-btn" style={{ borderColor: ch.color, color: ch.color }}>
                                 {ch.btn}
                             </Button>
                         </div>
@@ -208,9 +208,9 @@ const Contact = () => {
                 style={{ maxWidth: '420px', width: '90vw' }}
                 footer={
                     <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
-                        <Button cssClass="e-outline" onClick={() => setConfirmDialog(false)}>Go Back</Button>
+                        <Button className="e-outline" onClick={() => setConfirmDialog(false)}>Go Back</Button>
                         <Tooltip content={<>Your message will be sent to our team</>} position="TopCenter">
-                            <Button cssClass="e-primary" onClick={handleConfirmSend}>Yes, Send It!</Button>
+                            <Button className="e-primary" onClick={handleConfirmSend}>Yes, Send It!</Button>
                         </Tooltip>
                     </div>
                 }
@@ -228,7 +228,7 @@ const Contact = () => {
                 open={successDialog}
                 onClose={() => setSuccessDialog(false)}
                 style={{ maxWidth: '420px', width: '90vw' }}
-                footer={<Button cssClass="e-primary" onClick={() => setSuccessDialog(false)}>Awesome, Thanks!</Button>}
+                footer={<Button className="e-primary" onClick={() => setSuccessDialog(false)}>Awesome, Thanks!</Button>}
             >
                 <div className="dialog-success-body">
                     <div className="success-checkmark">✅</div>

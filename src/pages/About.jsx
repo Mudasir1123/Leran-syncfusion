@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Tooltip } from '@syncfusion/react-popups';
-import { Dialog } from '@syncfusion/react-popups';
+import React, { useState, useContext } from 'react';
+import { Tooltip, Dialog } from '@syncfusion/react-popups';
 import { Button, Checkbox } from '@syncfusion/react-buttons';
 import { Grid, Columns, Column } from '@syncfusion/react-grid';
 import { DropDownList } from '@syncfusion/react-dropdowns';
 import { TextBox } from '@syncfusion/react-inputs';
-import './About.css';
+import { ThemeContext } from '../context/ThemeContext';
+import '../styles/About.css';
 
 const teamMembers = [
     {
@@ -212,9 +212,9 @@ const About = () => {
             <div className="about-cta">
                 <h2>Ready to supercharge your workflow?</h2>
                 <p>Join 10,000+ businesses already using SyncPro to manage their orders smarter.</p>
-                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <Button cssClass="e-primary e-large">Start Free Trial</Button>
-                    <Button cssClass="e-outline e-large">Schedule Demo</Button>
+                <div className="button-row" style={{ justifyContent: 'center', marginTop: '24px' }}>
+                    <Button className="e-primary e-large">Start Free Trial</Button>
+                    <Button className="e-outline e-large">Schedule Demo</Button>
                 </div>
             </div>
 
@@ -229,10 +229,10 @@ const About = () => {
                         <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
                             <Tooltip content={<>Send an email to {selectedMember.name}</>} position="TopCenter">
                                 <a href={`mailto:${selectedMember.email}`}>
-                                    <Button cssClass="e-outline">✉️ Email</Button>
+                                    <Button className="e-outline">✉️ Email</Button>
                                 </a>
                             </Tooltip>
-                            <Button cssClass="e-primary" onClick={() => setDialogVisible(false)}>Close</Button>
+                            <Button className="e-primary" onClick={() => setDialogVisible(false)}>Close</Button>
                         </div>
                     }
                 >

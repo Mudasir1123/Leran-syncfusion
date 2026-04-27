@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@syncfusion/ej2-base": "^33.2.3",
+    "@syncfusion/ej2-data": "^33.2.3",
+    "@syncfusion/ej2-react-base": "^33.2.3",
+    "@syncfusion/ej2-react-buttons": "^33.2.3",
     "@syncfusion/ej2-react-layouts": "^33.2.3",
     "@syncfusion/ej2-react-navigations": "^33.2.3",
     "@syncfusion/ej2-react-notifications": "^33.2.3",

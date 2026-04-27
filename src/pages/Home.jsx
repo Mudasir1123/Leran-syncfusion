@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Checkbox, RadioButton } from '@syncfusion/react-buttons';
 import { Link } from 'react-router-dom';
-import { Tooltip } from '@syncfusion/react-popups';
-import { Dialog } from '@syncfusion/react-popups';
+import { Tooltip, Dialog } from '@syncfusion/react-popups';
 import { Grid, Columns, Column } from '@syncfusion/react-grid';
 import { DropDownList } from '@syncfusion/react-dropdowns';
 import { TextBox } from '@syncfusion/react-inputs';
-import './Home.css';
+import { ThemeContext } from '../context/ThemeContext';
+import '../styles/Home.css';
 
 const featureDetails = {
     search: {
@@ -68,10 +68,10 @@ const Home = () => {
                         The ultimate dashboard solution for real-time order tracking,
                         advanced data analytics, and seamless customer management.
                     </p>
-                    <div className="hero-actions">
+                    <div className="hero-actions button-row">
                         <Link to="/dashboard">
                             <Tooltip content={<>Launch the Order Management Dashboard</>} position="BottomCenter">
-                                <Button cssClass="e-primary e-xlarge hero-btn">
+                                <Button className="e-primary e-xlarge hero-btn">
                                     Get Started
                                 </Button>
                             </Tooltip>
@@ -79,7 +79,7 @@ const Home = () => {
 
                         <Tooltip content={<>Discover what makes SyncPro powerful</>} position="BottomCenter">
                             <Button
-                                cssClass="e-outline e-xlarge hero-btn-secondary"
+                                className="e-outline e-xlarge hero-btn-secondary"
                                 onClick={() => setWelcomeDialog(true)}
                             >
                                 Learn More
@@ -176,32 +176,32 @@ const Home = () => {
                 <h2 className="section-title">🎨 Button Styles</h2>
                 <p className="section-sub">All the Syncfusion button variants in one place.</p>
                 <div className="btn-showcase">
-                    <Button cssClass="e-primary">Primary</Button>
-                    <Button cssClass="e-success">Success</Button>
-                    <Button cssClass="e-warning">Warning</Button>
-                    <Button cssClass="e-danger">Danger</Button>
-                    <Button cssClass="e-info">Info</Button>
-                    <Button cssClass="e-outline e-primary">Outline Primary</Button>
-                    <Button cssClass="e-outline e-success">Outline Success</Button>
-                    <Button cssClass="e-flat e-primary">Flat Primary</Button>
-                    <Button cssClass="e-round e-primary e-icon-btn" iconCss="e-icons e-search" />
-                    <Button cssClass="e-primary" iconCss="e-icons e-download" iconPosition="Left">Download</Button>
+                    <Button className="e-primary">Primary</Button>
+                    <Button className="e-success">Success</Button>
+                    <Button className="e-warning">Warning</Button>
+                    <Button className="e-danger">Danger</Button>
+                    <Button className="e-info">Info</Button>
+                    <Button className="e-outline e-primary">Outline Primary</Button>
+                    <Button className="e-outline e-success">Outline Success</Button>
+                    <Button className="e-flat e-primary">Flat Primary</Button>
+                    <Button className="e-round e-primary e-icon-btn" iconCss="e-icons e-search" />
+                    <Button className="e-primary" iconCss="e-icons e-download" iconPosition="Left">Download</Button>
                 </div>
 
-                <div className="toggle-row" style={{ marginTop: '24px' }}>
-                    <div className="toggle-item">
+                <div className="toggle-row button-row" style={{ marginTop: '32px', background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border)' }}>
+                    <div className="toggle-item" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <label className="native-toggle">
                             <input type="checkbox" checked={notifyEnabled} onChange={(e) => setNotifyEnabled(e.target.checked)} />
                             <span className="native-toggle-slider"></span>
                         </label>
-                        <span>Email Notifications {notifyEnabled ? 'ON' : 'OFF'}</span>
+                        <span style={{ fontWeight: 500 }}>Notifications {notifyEnabled ? 'Enabled' : 'Disabled'}</span>
                     </div>
-                    <div className="toggle-item">
-                        <Checkbox id="home-cb-1" label="Remember Me" checked={true} />
+                    <div className="toggle-item" style={{ borderLeft: '1px solid var(--border)', paddingLeft: '20px' }}>
+                        <Checkbox id="home-cb-1" label="Remember Session" checked={true} />
                     </div>
-                    <div className="toggle-item">
-                        <RadioButton id="home-rb-1" label="Free Plan" name="plan" value="Free" />
-                        <RadioButton id="home-rb-2" label="Pro Plan" name="plan" value="Pro" checked={true} />
+                    <div className="toggle-item" style={{ borderLeft: '1px solid var(--border)', paddingLeft: '20px', display: 'flex', gap: '16px' }}>
+                        <RadioButton id="home-rb-1" label="Free" name="plan" value="Free" />
+                        <RadioButton id="home-rb-2" label="Pro" name="plan" value="Pro" checked={true} />
                     </div>
                 </div>
             </section>
@@ -233,7 +233,7 @@ const Home = () => {
                             <ul className="plan-features">
                                 {plan.features.map((f, j) => <li key={j}>✓ {f}</li>)}
                             </ul>
-                            <Button cssClass="e-primary plan-btn" style={{ background: plan.color, border: 'none' }}>
+                            <Button className="e-primary plan-btn" style={{ background: plan.color, border: 'none' }}>
                                 Get {plan.name}
                             </Button>
                         </div>
@@ -277,7 +277,7 @@ const Home = () => {
                             onChange={(e) => setNewsletterInput(e.value)}
                             width="320px"
                         />
-                        <Button cssClass="e-primary newsletter-btn" iconCss="e-icons e-send">
+                        <Button className="e-primary newsletter-btn" iconCss="e-icons e-send">
                             Subscribe
                         </Button>
                     </div>
@@ -291,7 +291,7 @@ const Home = () => {
                 onClose={() => setDialogVisible(false)}
                 style={{ maxWidth: '480px', width: '90vw' }}
                 footer={
-                    <Button cssClass="e-primary" onClick={() => setDialogVisible(false)}>
+                    <Button className="e-primary" onClick={() => setDialogVisible(false)}>
                         Got it!
                     </Button>
                 }
@@ -316,9 +316,9 @@ const Home = () => {
                 style={{ maxWidth: '520px', width: '90vw' }}
                 footer={
                     <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
-                        <Button cssClass="e-outline" onClick={() => setWelcomeDialog(false)}>Close</Button>
+                        <Button className="e-outline" onClick={() => setWelcomeDialog(false)}>Close</Button>
                         <Link to="/dashboard" onClick={() => setWelcomeDialog(false)}>
-                            <Button cssClass="e-primary">Open Dashboard →</Button>
+                            <Button className="e-primary">Open Dashboard →</Button>
                         </Link>
                     </div>
                 }

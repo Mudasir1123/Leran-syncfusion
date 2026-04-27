@@ -1,10 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import { Grid, Columns, Column, ClipMode, TextAlign } from '@syncfusion/react-grid';
 import { DropDownList } from '@syncfusion/react-dropdowns';
 import { TextBox } from '@syncfusion/react-inputs';
 import { Button } from '@syncfusion/react-buttons';
-import { Tooltip } from '@syncfusion/react-popups';
-import { Dialog } from '@syncfusion/react-popups';
+import { Tooltip, Dialog } from '@syncfusion/react-popups';
 import { 
     Chart, 
     ChartSeriesCollection, 
@@ -15,6 +14,7 @@ import {
     ChartLegend,
     ChartMarker
 } from '@syncfusion/react-charts';
+import { ThemeContext } from '../context/ThemeContext';
 import { orderDetails } from '../orderDetails';
 import '../orderDetails.css';
 
@@ -157,7 +157,7 @@ export default function Dashboard() {
                 {/* Search */}
                 <div className="control-group">
                     <label>Search Orders</label>
-                    <div className="search-wrapper">
+                    <div className="search-wrapper button-row">
                         <Tooltip content={<>Search by ID, Name, Address, Country or Amount</>} position="TopCenter">
                             <TextBox
                                 placeholder="Search by ID, Name, City..."
@@ -168,7 +168,7 @@ export default function Dashboard() {
                         </Tooltip>
                         <Tooltip content={<>Apply all filters and search</>} position="TopCenter">
                             <Button
-                                color="Primary"
+                                className="e-primary"
                                 onClick={handleSearch}
                                 iconCss="e-icons e-search"
                             >
@@ -182,7 +182,7 @@ export default function Dashboard() {
                 <div className="control-group" style={{ alignSelf: 'flex-end' }}>
                     <Tooltip content={<>Clear all filters and show all orders</>} position="TopCenter">
                         <Button
-                            cssClass="e-outline"
+                            className="e-outline"
                             onClick={() => setResetDialog(true)}
                         >
                             🔄 Reset
@@ -305,10 +305,10 @@ export default function Dashboard() {
                 style={{ maxWidth: '400px', width: '90vw' }}
                 footer={
                     <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
-                        <Button cssClass="e-outline" onClick={() => setResetDialog(false)}>
+                        <Button className="e-outline" onClick={() => setResetDialog(false)}>
                             Cancel
                         </Button>
-                        <Button cssClass="e-primary" onClick={handleReset}>
+                        <Button className="e-primary" onClick={handleReset}>
                             Yes, Reset
                         </Button>
                     </div>
@@ -332,7 +332,7 @@ export default function Dashboard() {
                 onClose={() => setInfoDialog(false)}
                 style={{ maxWidth: '520px', width: '90vw' }}
                 footer={
-                    <Button cssClass="e-primary" onClick={() => setInfoDialog(false)}>
+                    <Button className="e-primary" onClick={() => setInfoDialog(false)}>
                         Got it!
                     </Button>
                 }

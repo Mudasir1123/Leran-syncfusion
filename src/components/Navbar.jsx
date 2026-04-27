@@ -1,52 +1,43 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@syncfusion/react-buttons';
 import { Tooltip } from '@syncfusion/react-popups';
 import './Navbar.css';
 
 const Navbar = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const navLinks = [
+        { path: '/', label: 'Home', tooltip: 'Go to Home page' },
+        { path: '/dashboard', label: 'Dashboard', tooltip: 'View order management dashboard', primary: true },
+        { path: '/products', label: 'Products', tooltip: 'Browse our product catalog' },
+        { path: '/services', label: 'Services', tooltip: 'Explore our professional services' },
+        { path: '/about', label: 'About', tooltip: 'Learn about our team & mission' },
+        { path: '/team', label: 'Team', tooltip: 'Meet our talented experts' },
+        { path: '/contact', label: 'Contact', tooltip: 'Get in touch with us' },
+        { path: '/components', label: 'Library', tooltip: 'Component Showcase' },
+    ];
 
     return (
-        <nav className="custom-navbar">
+        <nav className="custom-navbar glass-panel">
             <div className="navbar-content">
-                <div className="navbar-brand">
+                <Link to="/" className="navbar-brand">
                     <span className="e-icons e-syncfusion-logo brand-icon"></span>
                     <span className="brand-name">SyncPro</span>
-                </div>
-                <div className="e-appbar-spacer"></div>
+                </Link>
+                
                 <div className="navbar-links">
-                    <Tooltip content={<>Go to Home page</>} position="BottomCenter">
-                        <Link to="/">
-                            <Button cssClass={`e-flat ${location.pathname === '/' ? 'active-link' : ''}`}>
-                                Home
+                    {navLinks.map((link) => (
+                        <Tooltip key={link.path} content={<>{link.tooltip}</>} position="BottomCenter">
+                            <Button 
+                                className={`e-flat ${link.primary ? 'e-primary nav-btn-primary' : 'nav-btn'} ${location.pathname === link.path ? 'active-link' : ''}`}
+                                onClick={() => navigate(link.path)}
+                            >
+                                {link.label}
                             </Button>
-                        </Link>
-                    </Tooltip>
-
-                    <Tooltip content={<>Learn about our team & mission</>} position="BottomCenter">
-                        <Link to="/about">
-                            <Button cssClass={`e-flat ${location.pathname === '/about' ? 'active-link' : ''}`}>
-                                About
-                            </Button>
-                        </Link>
-                    </Tooltip>
-
-                    <Tooltip content={<>Send us a message</>} position="BottomCenter">
-                        <Link to="/contact">
-                            <Button cssClass={`e-flat ${location.pathname === '/contact' ? 'active-link' : ''}`}>
-                                Contact
-                            </Button>
-                        </Link>
-                    </Tooltip>
-
-                    <Tooltip content={<>View order management dashboard</>} position="BottomCenter">
-                        <Link to="/dashboard">
-                            <Button cssClass={`e-flat e-primary dashboard-btn ${location.pathname === '/dashboard' ? 'active-link' : ''}`}>
-                                Dashboard
-                            </Button>
-                        </Link>
-                    </Tooltip>
+                        </Tooltip>
+                    ))}
                 </div>
             </div>
         </nav>
