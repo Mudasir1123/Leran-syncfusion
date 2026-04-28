@@ -1,35 +1,35 @@
 /* ── About Page Styles ─────────────────────────────── */
 .about-container { max-width: 1200px; margin: 0 auto; padding: 120px 20px 80px; }
 .about-header { text-align: center; margin-bottom: 70px; }
-.about-header h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
-.about-header p { font-size: 1.25rem; color: #64748b; }
+.about-header h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-primary); }
+.about-header p { font-size: 1.25rem; color: var(--text-secondary); }
 .highlight { color: #0366d6; }
 .about-section { margin-bottom: 90px; }
-.section-title { font-size: 2rem; font-weight: 800; margin-bottom: 8px; text-align: center; }
-.section-sub { color: #64748b; margin-bottom: 28px; font-size: 1rem; text-align: center; }
+.section-title { font-size: 2rem; font-weight: 800; margin-bottom: 8px; text-align: center; color: var(--text-primary); }
+.section-sub { color: var(--text-secondary); margin-bottom: 28px; font-size: 1rem; text-align: center; }
 
 /* VALUES */
 .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-.value-card { background: white; border-radius: 20px; padding: 32px 24px; text-align: center; border: 2px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+.value-card { background: var(--bg-secondary); border-radius: 20px; padding: 32px 24px; text-align: center; border: 2px solid var(--border); transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
 .value-card:hover { transform: translateY(-6px); border-color: var(--val-color); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
 .value-icon { font-size: 2.5rem; margin-bottom: 14px; display: block; }
-.value-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
-.value-card p { color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+.value-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+.value-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
 /* MISSION */
 .about-content { margin-bottom: 90px; }
 .mission-section { text-align: center; max-width: 800px; margin: 0 auto 80px; }
-.mission-section h2 { font-size: 2.5rem; margin-bottom: 24px; }
-.mission-section p { font-size: 1.15rem; line-height: 1.8; color: #475569; }
+.mission-section h2 { font-size: 2.5rem; margin-bottom: 24px; color: var(--text-primary); }
+.mission-section p { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); }
 
 /* TEAM */
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 80px; }
 .team-card { border-radius: 20px !important; overflow: hidden; transition: transform 0.3s ease !important; border: none !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; }
 .team-card:hover { transform: translateY(-10px); }
 .team-avatar { width: 60px; height: 60px; border-radius: 50%; background-size: cover; background-position: center; }
-.t1 { background-image: url('https://i.pravatar.cc/150?u=alex'); }
-.t2 { background-image: url('https://i.pravatar.cc/150?u=sarah'); }
-.t3 { background-image: url('https://i.pravatar.cc/150?u=mike'); }
+.t1 { background-image: url('https://i.pravatar.cc/150?u=alex'); filter: brightness(0.9); }
+.t2 { background-image: url('https://i.pravatar.cc/150?u=sarah'); filter: brightness(0.9); }
+.t3 { background-image: url('https://i.pravatar.cc/150?u=mike'); filter: brightness(0.9); }
 .team-card-clickable { cursor: pointer; }
 .team-card-clickable:focus { outline: 2px solid #0366d6; outline-offset: 4px; }
 .team-card-footer { padding: 12px 16px 16px; text-align: right; }
@@ -37,11 +37,11 @@
 .team-card-clickable:hover .team-view-profile { opacity: 1; transform: translateX(0); }
 
 /* STATS */
-.stats-section { display: flex; justify-content: space-around; padding: 60px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-radius: 30px; text-align: center; flex-wrap: wrap; gap: 20px; }
+.stats-section { display: flex; justify-content: space-around; padding: 60px; background: var(--bg-tertiary); border-radius: 30px; text-align: center; flex-wrap: wrap; gap: 20px; border: 1px solid var(--border); }
 .stat-number { display: block; font-size: 3rem; font-weight: 800; color: #0366d6; }
-.stat-label { font-size: 1rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.stat-label { font-size: 1rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 .stat-item { cursor: default; padding: 16px 24px; border-radius: 16px; transition: background 0.25s ease, transform 0.25s ease; }
-.stat-item:hover { background: rgba(3,102,214,0.07); transform: translateY(-4px); }
+.stat-item:hover { background: rgba(3,102,214,0.15); transform: translateY(-4px); }
 
 /* TIMELINE */
 .timeline { display: flex; flex-direction: column; position: relative; padding-left: 48px; }
@@ -49,10 +49,10 @@
 .timeline-item { display: flex; gap: 24px; align-items: flex-start; padding: 20px 0; position: relative; }
 .timeline-dot { width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--tm-color); flex-shrink: 0; margin-top: 6px; position: absolute; left: -42px; background: var(--tm-color); }
 .timeline-year { font-size: 1.4rem; font-weight: 800; min-width: 55px; padding-top: 4px; color: var(--tm-color); }
-.timeline-content { background: white; border-radius: 16px; padding: 20px 24px; border: 1px solid #e2e8f0; flex: 1; box-shadow: 0 4px 16px rgba(0,0,0,0.03); transition: box-shadow 0.2s ease; }
-.timeline-content:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
-.timeline-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-.timeline-content p { color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+.timeline-content { background: var(--bg-secondary); border-radius: 16px; padding: 20px 24px; border: 1px solid var(--border); flex: 1; box-shadow: 0 4px 16px rgba(0,0,0,0.03); transition: box-shadow 0.2s ease; }
+.timeline-content:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); border-color: var(--tm-color); }
+.timeline-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+.timeline-content p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
 /* TECH STACK */
 .tech-filter-row { margin-bottom: 20px; }
@@ -65,13 +65,13 @@
 /* DIALOG */
 .dialog-member-body { padding: 8px 0; display: flex; flex-direction: column; gap: 18px; }
 .dialog-member-avatar { width: 80px; height: 80px; border-radius: 50%; background-size: cover; background-position: center; border: 3px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 0 auto 4px; }
-.dialog-member-bio { font-size: 0.97rem; color: #475569; line-height: 1.75; margin: 0; }
-.dialog-member-skills strong { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin-bottom: 10px; }
+.dialog-member-bio { font-size: 0.97rem; color: var(--text-secondary); line-height: 1.75; margin: 0; }
+.dialog-member-skills strong { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); opacity: 0.7; margin-bottom: 10px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill-tag { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: 5px 13px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: default; transition: background 0.2s ease, transform 0.2s ease; }
-.skill-tag:hover { background: #dbeafe; transform: translateY(-2px); }
-.dialog-member-email { font-size: 0.9rem; color: #64748b; margin: 0; }
-.dialog-member-email a { color: #0366d6; text-decoration: none; font-weight: 600; }
+.skill-tag { background: var(--bg-tertiary); color: #3b82f6; border: 1px solid var(--border); padding: 5px 13px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: default; transition: background 0.2s ease, transform 0.2s ease; }
+.skill-tag:hover { background: var(--bg-secondary); transform: translateY(-2px); border-color: #3b82f6; }
+.dialog-member-email { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+.dialog-member-email a { color: #3b82f6; text-decoration: none; font-weight: 600; }
 .dialog-member-email a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {

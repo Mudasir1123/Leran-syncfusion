@@ -429,3 +429,58 @@ body {
   background: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ── GLOBAL SYNCFUSION GRID THEMING ────────────────────── */
+.e-grid {
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    background-color: var(--bg-secondary) !important;
+}
+
+.e-grid .e-headercell {
+    background-color: var(--bg-tertiary) !important;
+    border-bottom: 2px solid var(--border) !important;
+    padding: 16px !important;
+}
+
+.e-grid .e-headertext {
+    color: var(--text-primary) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.e-grid .e-row {
+    height: 60px !important;
+    background-color: transparent !important;
+}
+
+.e-grid .e-rowcell {
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.e-grid .e-row:hover .e-rowcell {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--primary) !important;
+    transition: all 0.2s ease;
+}
+
+.e-grid .e-gridheader {
+    border-bottom: none !important;
+}
+
+.e-grid .e-content {
+    background-color: var(--bg-secondary) !important;
+}
+
+.e-grid .e-pager {
+    padding: 15px !important;
+    border-top: 1px solid var(--border) !important;
+    background-color: var(--bg-tertiary) !important;
+}

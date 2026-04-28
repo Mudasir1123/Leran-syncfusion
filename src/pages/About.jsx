@@ -191,7 +191,8 @@ const About = () => {
                             template={(p) => (
                                 <span style={{
                                     padding: '2px 10px', borderRadius: '20px', fontSize: '0.75rem',
-                                    background: '#06b6d420', color: '#06b6d4', fontWeight: 600
+                                    background: 'rgba(6, 182, 212, 0.25)', color: '#06b6d4', fontWeight: 600,
+                                    border: '1px solid rgba(6, 182, 212, 0.4)'
                                 }}>{p.type}</span>
                             )}
                         />
@@ -200,7 +201,8 @@ const About = () => {
                             template={() => (
                                 <span style={{
                                     padding: '2px 10px', borderRadius: '20px', fontSize: '0.75rem',
-                                    background: '#10b98120', color: '#10b981', fontWeight: 600
+                                    background: 'rgba(16, 185, 129, 0.25)', color: '#10b981', fontWeight: 600,
+                                    border: '1px solid rgba(16, 185, 129, 0.4)'
                                 }}>● Active</span>
                             )}
                         />

@@ -253,8 +253,9 @@ const Home = () => {
                             template={(props) => (
                                 <span style={{
                                     padding: '3px 10px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600,
-                                    background: props.status === 'Verified' ? '#10b98120' : props.status === 'Pending' ? '#f59e0b20' : '#ef444420',
+                                    background: props.status === 'Verified' ? 'rgba(16, 185, 129, 0.25)' : props.status === 'Pending' ? 'rgba(245, 158, 11, 0.25)' : 'rgba(239, 68, 68, 0.25)',
                                     color: props.status === 'Verified' ? '#10b981' : props.status === 'Pending' ? '#f59e0b' : '#ef4444',
+                                    border: props.status === 'Verified' ? '1px solid #10b98140' : props.status === 'Pending' ? '1px solid #f59e0b40' : '1px solid #ef444440'
                                 }}>
                                     {props.status}
                                 </span>

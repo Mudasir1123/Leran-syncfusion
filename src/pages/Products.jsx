@@ -1,15 +1,21 @@
 import React, { useContext } from 'react';
 import { Button } from '@syncfusion/react-buttons';
 import { ThemeContext } from '../context/ThemeContext';
+import { CartContext } from '../context/CartContext';
+import heroImg from '../assets/hero.png';
+import reactImg from '../assets/react.svg';
+import viteImg from '../assets/vite.svg';
 import '../styles/Products.css';
 
 function Products() {
     const { isDarkMode, primaryColor } = useContext(ThemeContext);
+    const { addToCart } = useContext(CartContext);
 
     const products = [
         {
             id: 1,
             name: 'React Component Library',
+            image: heroImg,
             price: '$299',
             rating: 4.8,
             badge: 'Popular',
@@ -18,6 +24,7 @@ function Products() {
         {
             id: 2,
             name: 'Data Grid Pro',
+            image: reactImg,
             price: '$199',
             rating: 4.7,
             badge: 'Advanced',
@@ -26,6 +33,7 @@ function Products() {
         {
             id: 3,
             name: 'Chart Suite',
+            image: viteImg,
             price: '$249',
             rating: 4.9,
             badge: 'New',
@@ -34,6 +42,7 @@ function Products() {
         {
             id: 4,
             name: 'Form Builder',
+            image: heroImg,
             price: '$179',
             rating: 4.6,
             badge: 'Essential',
@@ -42,6 +51,7 @@ function Products() {
         {
             id: 5,
             name: 'Theme Studio',
+            image: reactImg,
             price: '$149',
             rating: 4.5,
             badge: 'Design',
@@ -50,6 +60,7 @@ function Products() {
         {
             id: 6,
             name: 'Premium Support',
+            image: viteImg,
             price: '$599',
             rating: 4.9,
             badge: 'Premium',
@@ -67,7 +78,7 @@ function Products() {
                     <div key={product.id} className="product-card zoom-in">
                         <div className="product-badge">{product.badge}</div>
                         <div className="product-image">
-                            <div className="image-placeholder"></div>
+                            <img src={product.image} alt={product.name} style={{ width: '80px', height: '80px', objectFit: 'contain' }} />
                         </div>
                         <div className="product-details">
                             <h3>{product.name}</h3>
@@ -77,7 +88,7 @@ function Products() {
                             </div>
                             <div className="price-section">
                                 <span className="price">{product.price}</span>
-                                <Button className={`e-primary btn-${primaryColor}`}>
+                                <Button className={`e-primary btn-${primaryColor}`} onClick={() => addToCart(product)}>
                                     Add to Cart
                                 </Button>
                             </div>

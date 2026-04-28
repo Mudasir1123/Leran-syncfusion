@@ -30,6 +30,7 @@ const statusTemplate = (props) => {
 };
 
 export default function Dashboard() {
+    const { isDarkMode } = useContext(ThemeContext);
     const [filteredData, setFilteredData] = useState(orderDetails);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCountry, setSelectedCountry] = useState('All');
@@ -217,10 +218,17 @@ export default function Dashboard() {
             </Grid>
 
             {/* Dynamic Data Visualization */}
-            <div className="chart-section" style={{ marginTop: '40px', padding: '24px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '16px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <div className="chart-section" style={{ 
+                marginTop: '40px', 
+                padding: '24px', 
+                background: 'var(--bg-secondary)', 
+                borderRadius: '16px', 
+                border: '1px solid var(--border)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)'
+            }}>
                 <div className="chart-header" style={{ marginBottom: '20px' }}>
-                    <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#fff', margin: 0 }}>Order Analytics by Country</h2>
-                    <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem' }}>Visualizing order distribution and verification status across top regions</p>
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'var(--text-primary)', margin: 0 }}>Order Analytics by Country</h2>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Visualizing order distribution and verification status across top regions</p>
                 </div>
                 
                 
@@ -230,34 +238,32 @@ export default function Dashboard() {
                     chartArea={{ border: { width: 0 } }}
                     background="transparent"
                     height="400px"
-                    theme="MaterialDark"
+                    theme={isDarkMode ? "MaterialDark" : "Material"}
                     title="Order Distribution Analysis"
-                    titleStyle={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600' }}
+                    titleStyle={{ color: 'var(--text-primary)', fontWeight: '600' }}
                 >
                     <ChartPrimaryXAxis 
                         valueType='Category' 
                         labelRotation={-45} 
                         labelIntersectAction='Rotate45'
                         majorGridLines={{ width: 0 }}
-                        labelStyle={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                        labelStyle={{ color: 'var(--text-secondary)' }}
                     />
                     <ChartPrimaryYAxis 
                         title='Number of Orders'
                         labelFormat='{value}'
                         lineStyle={{ width: 0 }}
                         majorTickLines={{ width: 0 }}
-                        labelStyle={{ color: 'rgba(255, 255, 255, 0.8)' }}
-                        titleStyle={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                        labelStyle={{ color: 'var(--text-secondary)' }}
+                        titleStyle={{ color: 'var(--text-secondary)' }}
                     />
                     <ChartTooltip 
                         enable={true} 
                         shared={true} 
-                        fill='#1a1a1a' 
-                        border={{ color: '#333' }} 
                     />
                     <ChartLegend 
                         visible={true} 
-                        textStyle={{ color: 'rgba(255, 255, 255, 0.8)' }} 
+                        textStyle={{ color: 'var(--text-primary)' }} 
                     />
                     <ChartSeriesCollection>
                         <ChartSeries 

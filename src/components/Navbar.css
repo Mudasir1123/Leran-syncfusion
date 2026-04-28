@@ -9,8 +9,10 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border, rgba(255,255,255,0.1));
     transition: all 0.3s ease;
+    background: var(--bg-secondary, #fff);
+    color: var(--text-primary, #0f172a);
 }
 
 .navbar-content {
@@ -25,7 +27,7 @@
 
 .navbar-brand, .nav-link-wrapper {
     text-decoration: none !important;
-    color: inherit;
+    color: var(--text-primary, #0f172a) !important;
     display: flex;
     align-items: center;
 }
@@ -46,9 +48,7 @@
 .brand-name {
     font-size: 1.6rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary, #0f172a) !important;
     letter-spacing: -1px;
 }
 
@@ -85,6 +85,52 @@
 .active-link {
     color: #3b82f6 !important;
     background: rgba(59, 130, 246, 0.05) !important;
+}
+
+/* Cart Icon Button */
+.cart-icon-btn {
+    background: none !important;
+    border: none !important;
+    position: relative;
+    margin-left: 12px;
+    color: var(--primary, #2563eb) !important;
+    font-size: 1.5rem !important;
+    box-shadow: none !important;
+    padding: 4px 8px !important;
+    cursor: pointer;
+}
+.cart-count {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: var(--danger, #ef4444);
+    color: #fff;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    padding: 2px 6px;
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.cart-icon-btn, .theme-toggle-btn, .settings-icon-btn {
+    background: transparent !important;
+    border: none !important;
+    padding: 8px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    box-shadow: none !important;
+}
+
+.cart-icon-btn:hover, .theme-toggle-btn:hover, .settings-icon-btn:hover {
+    background: var(--bg-tertiary) !important;
+    transform: translateY(-2px);
+}
+
+.theme-toggle-btn:hover {
+    color: var(--text-primary, #0f172a) !important;
 }
 
 /* Mobile responsive adjustments */
